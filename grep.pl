@@ -4,6 +4,7 @@ use strict;
 
 my $file = $ARGV[0];
 my $file2 = $ARGV[1];
+my $field = $ARGV[2];
 
 open(FH, $file2);
 my @list = <FH>;
@@ -28,11 +29,12 @@ foreach my $id( @ids ) {
   {
     foreach my $str(@{$user_info->{$id}}){
       print $id."\t".$str."\n";
-    }
+	}
   }
   else
   {
-      print $id."\tNONE";
+      #do nothing
+      #print $id."\tNONE\n";
   }
 
 }
@@ -40,8 +42,8 @@ foreach my $id( @ids ) {
 sub trim {
     my @out = @_;
     for (@out) {
-      s/^\s+//;
-      s/\s+$//;
+s/^\s+//;
+s/\s+$//;
     }
     return wantarray ? @out : $out[0];
 }
